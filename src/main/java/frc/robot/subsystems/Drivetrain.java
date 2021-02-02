@@ -41,8 +41,8 @@ public class Drivetrain extends SubsystemBase {
   private final SparkMaxPIDController m_rightController;
   private final SparkMaxPIDController m_leftController;
 
-  private final CANEncoder leftEncoder = new CANEncoder(leftLeader);
-  private final CANEncoder rightEncoder = new CANEncoder(rightLeader);
+  private final CANEncoder leftEncoder = leftLeader.getEncoder();
+  private final CANEncoder rightEncoder = rightLeader.getEncoder();
 
   private double v;
   private double lastPosition;

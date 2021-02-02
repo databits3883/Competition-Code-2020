@@ -13,11 +13,8 @@ import com.revrobotics.CANDigitalInput.LimitSwitch;
 import com.revrobotics.CANDigitalInput.LimitSwitchPolarity;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -25,8 +22,8 @@ public class Intake extends SubsystemBase {
   private final VictorSP intakeMotor = new VictorSP(Constants.intakeRetrieveChannel);
   private final CANSparkMax extenderMotor = new CANSparkMax(Constants.intakeExtenderChannel, MotorType.kBrushed);
 
-  private final CANDigitalInput extendedLimitSwitch = new CANDigitalInput(extenderMotor, LimitSwitch.kReverse, LimitSwitchPolarity.kNormallyClosed);
-  private final CANDigitalInput retractedLimitSwitch = new CANDigitalInput(extenderMotor, LimitSwitch.kForward, LimitSwitchPolarity.kNormallyClosed);
+  private final CANDigitalInput extendedLimitSwitch = extenderMotor.getReverseLimitSwitch(LimitSwitchPolarity.kNormallyClosed);
+  private final CANDigitalInput retractedLimitSwitch = extenderMotor.getForwardLimitSwitch(LimitSwitchPolarity.kNormallyClosed);
   /**
    * Creates a new Intake.
    */
