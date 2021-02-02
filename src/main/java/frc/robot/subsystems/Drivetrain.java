@@ -28,10 +28,6 @@ import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.geometry.Translation2d;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
 import frc.robot.Variables;
 import frc.robot.util.SetpointAccelerationLimiter;
 
@@ -195,7 +191,7 @@ public class Drivetrain extends SubsystemBase {
     m_leftController.setSetpoint(leftVelocity);
 }
    double getTippingOffset(){
-    //TEMPORARY REMOVE ANTI_TIP
+    //REMOVE ANTI_TIP
     return 0;
     /*
     double tip = Variables.getInstance().getGyroPitch(); //positive pitch is nose-up: negative offset to fix
